@@ -10,14 +10,28 @@ import UIKit
 
 class ViewController: UIViewController  {
     
+    
+    
     @IBOutlet var tableViewList : UITableView!
      let store = DataStore.sharedInstance
+    
+    var musicList : [Music] = []
+    var coverList : [UIImage] = []
+    var Count : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        //tableViewList.rowHeight = 44
       // tableViewList.estimatedRowHeight = 150
         
+         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        
+        store.getCoverImages {
+            print("data complete")
+            self.musicList = self.store.musicList
+            self.coverList = self.store.musicAlbum
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
     }
 
 
@@ -26,11 +40,23 @@ class ViewController: UIViewController  {
 extension ViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section : \(section)"
+        
+        switch section {
+        case 0:
+          return "Top Tracks In AppleMusic"
+        case 1:
+          return  "Top Film In Itunes"
+        case 2 :
+          return "Top Book In Books"
+        default:
+          return ""
+        }
+        
+       
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,9 +64,25 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
+        Count += 1
+        
+        print("index: \(Count)")
+        if  Count == 1 {
+            cell.collView.reloadSections(IndexSet(integer: 0))
+        }
         
         return cell
+    }
+    
+    
+    
+    @objc func loadList(notification: NSNotification){
+        //self.favoritesCV.reloadData()
+      //  self.collView.reloadSections(IndexSet(integer: 0))
+        self.tableViewList.reloadData()
+        Count = 0
+        print("reload data")
     }
     
     

@@ -14,7 +14,7 @@ struct  API {
     
     static func getMusicAPI(completion : @escaping (MusicJSON?) -> Void){
         
-        let url = URL(string: "https://rss.itunes.apple.com/api/v1/id/apple-music/coming-soon/all/10/explicit.json")
+        let url = URL(string: "https://rss.itunes.apple.com/api/v1/id/apple-music/hot-tracks/all/10/explicit.json")
         
         let session = URLSession.shared
         

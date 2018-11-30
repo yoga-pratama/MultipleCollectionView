@@ -12,18 +12,21 @@ class TableViewCell: UITableViewCell ,UICollectionViewDelegate,UICollectionViewD
     
     @IBOutlet var collView : UICollectionView!
     let store = DataStore.sharedInstance
+    
+    var musicList : [Music] = []
+    var coverList : [UIImage] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.collView.delegate = self
         self.collView.dataSource = self
         
-        store.getCoverImages {
-            self.collView.reloadSections(IndexSet(integer: 0))
-        }
-    
+        print("enter collection view")
+        
+       // self.collView.reloadSections(IndexSet(integer: 0))
+        
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -35,11 +38,14 @@ class TableViewCell: UITableViewCell ,UICollectionViewDelegate,UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("count list : \(store.musicList.count)")
         return store.musicList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collViewCell", for: indexPath) as! CollectionViewCell
+        
+        print("enter CollectionView")
         
         let music = store.musicList[indexPath.row]
      //   cell.label.text = "TEST LABEL \(indexPath.row)"
@@ -56,9 +62,8 @@ class TableViewCell: UITableViewCell ,UICollectionViewDelegate,UICollectionViewD
         return size
     }
     
-   
     
    
-    
+  
 
 }
