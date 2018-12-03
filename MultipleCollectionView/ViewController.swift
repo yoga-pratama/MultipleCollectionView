@@ -18,6 +18,9 @@ class ViewController: UIViewController  {
     var musicList : [Music] = []
     var coverList : [UIImage] = []
     var Count : Int = 0
+    
+    static let sharedInstance = ViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,11 +30,26 @@ class ViewController: UIViewController  {
          NotificationCenter.default.addObserver(self, selector: #selector(loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
         
         store.getCoverImages {
-            print("data complete")
-            self.musicList = self.store.musicList
-            self.coverList = self.store.musicAlbum
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            print("data music complete")
+         //   self.musicList = self.store.musicList
+           // self.coverList = self.store.musicAlbum
+          //  NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            
+            self.store.getPoster {
+                print("data film complete")
+                print("poster : \(self.store.moviePoster.count)")
+                
+                self.store.getCover {
+                    print("data book complete")
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                }
+                
+            }
         }
+        
+       
+        
+        
     }
 
 
@@ -67,10 +85,24 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
         let cell =  tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
         Count += 1
         
+        
         print("index: \(Count)")
-        if  Count == 1 {
+       if  Count == 1 {
+           cell.count = Count
+           cell.collView.reloadSections(IndexSet(integer: 0))
+        }else if Count == 2 {
+             cell.count = Count
+            cell.collView.reloadSections(IndexSet(integer: 0))
+       }else if Count == 3 {
+            cell.count = Count
             cell.collView.reloadSections(IndexSet(integer: 0))
         }
+        
+        if  Count == indexPath.row
+        {
+            Count = 0
+        }
+        
         
         return cell
     }

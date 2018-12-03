@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A05AA3F21B4C30700FA9FAE /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A05AA3E21B4C30700FA9FAE /* Film.swift */; };
+		0A05AA4121B4D76F00FA9FAE /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A05AA4021B4D76F00FA9FAE /* Book.swift */; };
 		0AF5FE1E21B0D0FF000B23F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF5FE1D21B0D0FF000B23F6 /* AppDelegate.swift */; };
 		0AF5FE2021B0D0FF000B23F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF5FE1F21B0D0FF000B23F6 /* ViewController.swift */; };
 		0AF5FE2321B0D0FF000B23F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF5FE2121B0D0FF000B23F6 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A05AA3E21B4C30700FA9FAE /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		0A05AA4021B4D76F00FA9FAE /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0AF5FE1A21B0D0FF000B23F6 /* MultipleCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF5FE1D21B0D0FF000B23F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF5FE1F21B0D0FF000B23F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				0AF5FE2F21B0D893000B23F6 /* TableViewCell.swift */,
 				0AF5FE3121B0D8BB000B23F6 /* CollectionViewCell.swift */,
 				0AF5FE3321B116BE000B23F6 /* Music.swift */,
+				0A05AA4021B4D76F00FA9FAE /* Book.swift */,
+				0A05AA3E21B4C30700FA9FAE /* Film.swift */,
 				0AF5FE3721B12AE0000B23F6 /* DataStore.swift */,
 				0AF5FE3921B13050000B23F6 /* API.swift */,
 			);
@@ -155,6 +161,8 @@
 				0AF5FE2021B0D0FF000B23F6 /* ViewController.swift in Sources */,
 				0AF5FE3421B116BE000B23F6 /* Music.swift in Sources */,
 				0AF5FE3221B0D8BB000B23F6 /* CollectionViewCell.swift in Sources */,
+				0A05AA4121B4D76F00FA9FAE /* Book.swift in Sources */,
+				0A05AA3F21B4C30700FA9FAE /* Film.swift in Sources */,
 				0AF5FE1E21B0D0FF000B23F6 /* AppDelegate.swift in Sources */,
 				0AF5FE3A21B13050000B23F6 /* API.swift in Sources */,
 			);
