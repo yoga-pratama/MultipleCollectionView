@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import CoreData
 
 typealias  MusicJSON = [String:Any]
 typealias  filmJSON = [String:Any]
 typealias  bookJSON = [String:Any]
+
+
 struct  API {
    
     
