@@ -48,7 +48,7 @@ final class DataStore{
                     "artworkUrl100" : data.artworkUrl100
                 ]
                 
-                print("\(data.artworkUrl100)")
+                print("receiving image from datacore.....")
                 
                 let  musicLists = Music(dictionary: musicData)
                 self.musicList.append(musicLists)
@@ -88,7 +88,7 @@ final class DataStore{
                         
                         do{
                             print("saving datacore....")
-                         //try context.save()
+                         try context.save()
                         }catch(let error as NSError){
                             print("Error saving data \(error.localizedDescription)")
                         }
@@ -106,15 +106,20 @@ final class DataStore{
     
     func getCoverImages(completion : @escaping () -> Void){
         getDataMusic {
-            for data in self.musicList{
-                let url = URL(string: data.artworkUrl100)
-                let data2 = try? Data(contentsOf: url!)
-                if let imageData = data2{
-                    print("receiving image.....")
-                 //   let image = UIImage(data: imageData)
-                //    self.musicAlbum.append(image!)
+            
+            if  self.musicAlbum.count == 0 {
+                for data in self.musicList{
+                    let url = URL(string: data.artworkUrl100)
+                    let data2 = try? Data(contentsOf: url!)
+                    if let imageData = data2{
+                        print("receiving image.....")
+                        let image = UIImage(data: imageData)
+                        self.musicAlbum.append(image!)
+                        
+                    }
                 }
             }
+           
             
             OperationQueue.main.addOperation {
                 completion()

@@ -73,6 +73,21 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
        
     }
     
+   /* func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100))
+        
+        let showHideButton: UIButton = UIButton(frame: CGRect(x:headerView.frame.size.width - 100, y:0, width:100, height:28))
+       
+      /*  showHideButton.setTitle("More", for: .normal)
+        showHideButton.backgroundColor = UIColor.blue
+        headerView.addSubview(showHideButton) */
+        
+         return headerView
+        
+    } */
+ 
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }

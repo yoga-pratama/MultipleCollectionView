@@ -64,7 +64,7 @@ class TableViewCell: UITableViewCell ,UICollectionViewDelegate,UICollectionViewD
                 cell.image.image = store.musicAlbum[indexPath.row]
                 cell.title.text =  music.name
                 cell.detail.text = music.artistName
-                cell.image.layer.cornerRadius = 5
+                cell.image.layer.cornerRadius = 10
              }
          
         case 2 :
@@ -93,8 +93,15 @@ class TableViewCell: UITableViewCell ,UICollectionViewDelegate,UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-        let size = CGSize(width: 100, height: 200)
+        let size = CGSize(width: 200, height: 250)
         return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        print(cell.title.text)
+        print(cell.detail.text)
+        
     }
     
     
