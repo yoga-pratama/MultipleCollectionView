@@ -15,7 +15,6 @@ final class DataStore{
     fileprivate init(){}
     
     var musicList : [Music] = []
-    var musicListObj: [Music] = []
     var musicAlbum: [UIImage] = []
     var filmList : [Film] = []
     var moviePoster : [UIImage] = []
